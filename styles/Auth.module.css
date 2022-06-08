@@ -1,0 +1,58 @@
+.auth{
+    min-height: 100vh;
+    background-color: var(--bgLight);
+    grid-template-rows: 1fr auto;
+}
+
+
+.auth_top{
+    background-color: var(--bgLight);
+    justify-content: center;
+    align-items: center;
+}
+
+.auth_bottom{
+    background-color: var(--bgPrimeCol);
+    min-height: 22rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth_bottom form{
+    width: 100%;
+    max-width: 20rem;
+}
+
+.auth_bottom form .input_tile{
+    align-items: center;
+    background-color: var(--bgLight);
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+}
+
+
+.icon{
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.auth_bottom form button{
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.auth form button > div{
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth_bottom .input_tile,
+.auth_bottom form button{
+    margin-top: 1rem;
+}

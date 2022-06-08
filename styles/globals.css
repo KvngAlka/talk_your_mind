@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  
 }
 
 a {
@@ -13,4 +14,54 @@ a {
 
 * {
   box-sizing: border-box;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+
+
+  --primeCol : rgb(45, 87, 150);
+  --secondaryCol : rgb(90, 61, 170);
+  --tertiaryCol : rgb(248, 246, 255);
+
+  --white : white;
+  --black : rgb(20, 20, 20);
+  --gray : gray;
+  --lightGray : lightgray;
+
+
+  --textCol : var(--black);
+  --borderColDeep :  var(--gray);
+
+  --bgPrimeCol : var(--primeCol);
+  --bgLight : var(--white);
+
+
+
+}
+
+
+
+.containerFlex{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.containerGrid{
+  width: 100%;
+  display: grid;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+
+input{
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  font-size: 1rem;
 }

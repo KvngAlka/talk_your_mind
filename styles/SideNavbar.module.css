@@ -1,0 +1,53 @@
+.side_navbar{
+    background-color: var(--bgPrimeCol);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    width: 25rem;
+}
+
+
+.top{
+    padding: 1rem;
+}
+
+.logo{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu{
+    color: var(--white);
+    width: 10rem;
+    justify-content: flex-end;
+}
+
+.menu_cont{
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    border: 0.3rem solid var(--white);
+    border-radius: 1rem;
+    font-size: 3rem;
+    place-items: center;
+    cursor: pointer;
+}
+
+.search_cont{
+    padding: 3rem;
+}
+
+.search_cont input{
+    background: transparent;
+    color: var(--white);
+     
+}
+
+.search_icon{
+    height: 2.2rem;
+    width: 2.2rem;
+    color: var(--white);
+}
