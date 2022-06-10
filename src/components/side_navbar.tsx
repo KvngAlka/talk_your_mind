@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import styles from '../../styles/SideNavbar.module.css'
 import logo from '../assets/imgs/logo.jpeg'
+import ListRoutes from './sidebar_navs';
 
 function SideNavbar() {
   return (
@@ -34,7 +35,7 @@ function SideNavbar() {
         {/* NAVIGATIONS */}
 
         <div className={`${styles.navigation}`}>
-
+            <ListRoutes/>
         </div>
 
     </div>

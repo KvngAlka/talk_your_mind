@@ -1,0 +1,50 @@
+.navbar{
+    background-color: var(--black);
+    padding: 2rem;
+    height: 7rem;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+}
+
+.h_n_cont{
+    width: fit-content;
+    margin-right: 2rem;
+}
+
+.help_icon,
+.notify_icon{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: var(--bgLight);
+    margin-right: 2rem;
+    padding: 0.5rem;
+    color: var(--primeCol);
+    cursor: pointer;
+}
+
+
+
+.profile_cont{
+    width: fit-content;
+    padding: 2rem;
+    color: var(--white);
+    gap: 1rem;
+}
+
+.avatar{
+    background-color: var(--primeCol);
+}
+
+.profile_cont h4{
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+
+.arrow_down_icon_cont{
+    width: 2rem;
+    color: var(--white);
+    font-weight: normal;
+}

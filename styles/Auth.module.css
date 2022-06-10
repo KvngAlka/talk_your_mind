@@ -1,7 +1,7 @@
 .auth{
     min-height: 100vh;
     background-color: var(--bgLight);
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr 1fr;
 }
 
 

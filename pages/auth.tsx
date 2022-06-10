@@ -1,11 +1,41 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/Auth.module.css'
 import logo from '../src/assets/imgs/logo.jpeg'
 import {LockClosedIcon, LoginIcon, UserIcon} from '@heroicons/react/outline'
+import { useStateValue } from '../src/state_manger/contextApi'
+import { USER_LOGIN } from '../src/state_manger/constants'
+import { useRouter } from 'next/router'
 
 const Auth = () => {
+    const userObj = {
+        username : "",
+        password : ""
+    }
+    const [userData, setUserData] = useState(userObj);
+    const {dispatch, state} = useStateValue();
+    const {user} = state;
+    const router = useRouter()
+
+
+    useEffect(()=>{
+        if(user){
+            router.push("/")
+        }
+    },[user]);
+
+
+    const handleUserChange = (e:any)=>{
+        let {name,value} = e.target;
+        setUserData({...userData, [name] : value});
+    }
+
+    const handleUserSubmit = (e:any)=>{
+        e.preventDefault();
+        dispatch({type : USER_LOGIN, payload : userData})
+    }
+
   return (
     <div className={`containerGrid ${styles.auth}`}>
         <Head>
@@ -25,22 +55,22 @@ const Auth = () => {
 
         {/* AUTH BOTTOM */}
         <div className={`containerFlex ${styles.auth_bottom}`}>
-            <form action="">
+            <form onSubmit={handleUserSubmit}>
                 <div className={`containerFlex ${styles.input_tile}`}>
                     <div>
                         <UserIcon className={`${styles.icon}`}/>
                     </div>
-                    <input type="text" placeholder='username' />
+                    <input type="text" value={userData.username} name = "username" onChange={handleUserChange}  placeholder='username' />
                 </div>
 
                 <div className={`containerFlex ${styles.input_tile}`}>
                     <div className={`${styles.icon}`}>
                         <LockClosedIcon/>
                     </div>
-                    <input type="text" placeholder='password' />
+                    <input type="text" value={userData.password} name = "password" onChange={handleUserChange} placeholder='password' />
                 </div>
                 <button className={`containerFlex`}>
-                    <div className='containerFlex'>
+                    <div className='containerFlex' >
                         Submit
                         <LoginIcon className={`${styles.icon}`}/>
                     </div>

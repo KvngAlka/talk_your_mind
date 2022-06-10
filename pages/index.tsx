@@ -1,6 +1,10 @@
+import { HomeIcon } from '@heroicons/react/outline'
+import { Breadcrumbs, Link, Typography } from '@mui/material'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Dashboard from '../src/components/dashboard'
+import { Navbar } from '../src/components/navbar'
 import SideNavbar from '../src/components/side_navbar'
 import styles from '../styles/Home.module.css'
 
@@ -14,8 +18,55 @@ const Home: NextPage = () => {
       </Head>
 
 
-      <div>
+      <div style={{display : "flex"}}>
         <SideNavbar/>
+       
+        <div style={{width : "100%"}}>
+          <Navbar/>
+
+          <div style={{width : "100%", padding : "2rem"}}>
+
+
+            {/* BREAD CRUMBS ======  NAV LINKS */}
+            <div className={`containerFlex ${styles.breadcrumbs_cont}`}>
+              <Breadcrumbs aria-label="breadcrumb">
+
+                <Link underline="hover" color="inherit" href="/">
+                  <HomeIcon/>
+                </Link>
+
+                <Link underline="hover" color="inherit" href="/">
+                  SYSTEM
+                </Link>
+
+                <Link
+                  underline="hover"
+                  color="inherit"
+                  href="/material-ui/getting-started/installation/"
+                >
+                  DASHBOARD
+                </Link>
+
+                <Typography color="text.primary">DASHBOARD</Typography>
+              </Breadcrumbs>
+
+
+
+
+              <div>
+                <div  style={{width : "100px", height : "10px", background : "red"}}>
+
+                </div>
+                <div  style={{width : "100px", height : "10px", background : "red"}}>
+
+                </div>
+              </div>
+            </div>
+
+            <Dashboard/>
+
+          </div>
+        </div>
 
       </div>
 

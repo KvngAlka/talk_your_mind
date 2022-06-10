@@ -20,21 +20,24 @@ a {
   padding: 0;
 
 
-  --primeCol : rgb(45, 87, 150);
+  /* --primeCol : rgb(45, 87, 150); */
+  --primeCol : #288BA8;
   --secondaryCol : rgb(90, 61, 170);
   --tertiaryCol : rgb(248, 246, 255);
 
   --white : white;
   --black : rgb(20, 20, 20);
   --gray : gray;
-  --lightGray : lightgray;
+  --lightGray : rgb(230, 230, 230);
 
 
   --textCol : var(--black);
   --borderColDeep :  var(--gray);
+  --borderColLight : var(--lightGray);
 
   --bgPrimeCol : var(--primeCol);
   --bgLight : var(--white);
+  --bgGrayLight : var(--lightGray);
 
 
 

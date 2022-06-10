@@ -1,0 +1,8 @@
+.breadcrumbs_cont{
+    border: 0.1rem solid var(--borderColLight);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    justify-content: space-between;
+}
+
+
