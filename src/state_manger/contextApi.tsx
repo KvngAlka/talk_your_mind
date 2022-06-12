@@ -1,9 +1,15 @@
 import { useRouter } from 'next/router';
 import React, { createContext, useContext, useEffect, useReducer, useState } from 'react'
+import Auth from '../../pages/auth';
+import Loading from '../components/loading';
 import { initialState, reducer } from './reducer'
 
 
-const DataContext = createContext<{state : any ,dispatch : React.Dispatch<any>} | any>({})
+interface DataContextInterface {
+  state : any,
+  dispatch : React.Dispatch<any>
+}
+const DataContext = createContext({state : {user : null}} as DataContextInterface)
 
 const DataProvider : React.FC<{children: any}> = ({children}) => {
 
@@ -23,7 +29,7 @@ const DataProvider : React.FC<{children: any}> = ({children}) => {
   },[])
 
 
-  if(pageLoading) return <div className='containerGrid'>Loading...</div>
+  if(pageLoading) return <Loading/>
 
   return (
     <DataContext.Provider value={{state,dispatch}}>

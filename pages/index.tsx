@@ -2,13 +2,32 @@ import { HomeIcon } from '@heroicons/react/outline'
 import { Breadcrumbs, Link, Typography } from '@mui/material'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { useEffect, useState} from 'react'
 import Dashboard from '../src/components/dashboard'
 import { Navbar } from '../src/components/navbar'
 import SideNavbar from '../src/components/side_navbar'
+import { useStateValue } from '../src/state_manger/contextApi'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+
+  const {state} = useStateValue();
+  const router = useRouter();
+  const [pageLoading, setPageLoading] = useState(true);
+
+  useEffect(()=>{
+    if(!state.user){
+      router.push("/auth")
+      setPageLoading(false)
+    }else{
+      setPageLoading(false)
+    }
+  },[]);
+
+
+  if(pageLoading) return <div>Loading....</div>
+
   return (
     <div className={`containerGrid ${styles.home}`}>
       <Head>
