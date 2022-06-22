@@ -1,5 +1,6 @@
 import { ChartBarIcon, ChevronDownIcon, ChevronUpIcon, DesktopComputerIcon,} from "@heroicons/react/outline";
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from '../../styles/SideNavbar.module.css'
 
@@ -13,6 +14,8 @@ const ListRoutes = ()=>{
     reportOpen : false
   }
   const [opens, setOpens] = useState(openObj);
+
+  const router  = useRouter();
 
   
   return (
@@ -75,7 +78,7 @@ const ListRoutes = ()=>{
           <Collapse in={opens.usersOpen} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
 
-              <ListItemButton sx={{ pl: 4 }}>
+              <ListItemButton sx={{ pl: 4 }} onClick = {()=> router.push("/users")}>
                 <ListItemIcon>
                 </ListItemIcon>
                 <ListItemText primary="Users" />
