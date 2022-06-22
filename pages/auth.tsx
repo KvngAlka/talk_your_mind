@@ -31,7 +31,7 @@ const Auth = () => {
             return;
         }
         
-    },[user]);
+    },[user,router]);
 
 
     const handleUserChange = (e:any)=>{
@@ -59,7 +59,7 @@ const Auth = () => {
             {/* AUTH TOP */}
             <div className={`containerFlex ${styles.auth_top}`}>
                 <div className={`${styles.logo}`}>
-                    <Image src={logo} objectFit = "fill"/>
+                    <Image src={logo} objectFit = "fill" alt='logo' />
                 </div>
             </div>
 

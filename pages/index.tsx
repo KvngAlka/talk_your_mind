@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     }else{
       setPageLoading(false)
     }
-  },[]);
+  },[router, state.user]);
 
 
   if(pageLoading) return <div>Loading....</div>

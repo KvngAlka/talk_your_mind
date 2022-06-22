@@ -13,7 +13,7 @@ function SideNavbar() {
             {/* LOGO */}
             <div className={`${styles.logo}`}>
                 <div className={styles.logo_frame}>
-                    <Image src={logo} objectFit='fill' />
+                    <Image src={logo} objectFit='fill' alt='' />
                 </div>
             </div>
             {/* MENU BUTTON */}

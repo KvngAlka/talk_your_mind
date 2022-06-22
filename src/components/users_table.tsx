@@ -49,7 +49,7 @@ const UsersTable = () => {
                 {
                     users?.map((user : any, i : number)=> {
                         return (
-                            <tr>
+                            <tr key={i}>
                                 <td>
                                     {user.login}
                                 </td>
