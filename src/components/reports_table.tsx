@@ -14,7 +14,7 @@ const ReportsTable = () => {
                 setCdrs([...res.data]);
                 setDataLoading(false)
 
-            }).catch(err => {console.log(err); setDataLoading(false)})
+            }).catch((err : any)=> {console.log(err); setDataLoading(false)})
         }
 
         !cdrs && getUsers();

@@ -57,7 +57,7 @@ const Auth = () => {
                 dispatch({type : USER_LOGIN, payload : userData})
             }
             
-        })
+        }).catch((err:any)=> {console.log(err); setPageLoading(false)})
         
     }
 
