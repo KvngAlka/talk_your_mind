@@ -76,13 +76,19 @@ table{
 }
 
 thead{
-  background-color: var(--primeCol);
+  background-color: #666699;
+  /* var(--primeCol); */
+}
+
+tr{
+  border-bottom: 0.1px solid var(--bgGrayLight);
 }
 
 th,td{
   padding: 15px;
   text-align: start;
 }
+
 
 th{
   color: var(--white);

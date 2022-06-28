@@ -5,10 +5,9 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState} from 'react'
 import { Navbar } from '../src/components/navbar'
+import ReportsTable from '../src/components/reports_table'
 import SideNavbar from '../src/components/side_navbar'
-import UsersTable from '../src/components/users_table'
 import { useStateValue } from '../src/state_manger/contextApi'
-import {PlusIcon, TrashIcon} from '@heroicons/react/outline'
 import styles from '../styles/Home.module.css'
 
 const Users: NextPage = () => {
@@ -55,19 +54,19 @@ const Users: NextPage = () => {
                   <HomeIcon/>
                 </Link>
 
-                <Link underline="hover" color="inherit" href="/">
+                <Link underline="hover" color="inherit" href="/systems">
                   SYSTEM
                 </Link>
 
                 <Link
                   underline="hover"
                   color="inherit"
-                  href="/users"
+                  href="/cdrs"
                 >
-                  Users
+                  Reports
                 </Link>
 
-                <Typography color="text.primary">Users</Typography>
+                <Typography color="text.primary">CDRs</Typography>
               </Breadcrumbs>
 
 
@@ -82,19 +81,9 @@ const Users: NextPage = () => {
                 </div>
               </div>
             </div>
+            
 
-
-            <div className={styles.add_delete_user_cont}>
-                <button style = {{backgroundColor : "var(--black)", color : 'white'}}>
-                    <PlusIcon height={15} /> Create New USer
-                </button>
-
-                <button style = {{backgroundColor : "red", color : 'white'}} >
-                  <TrashIcon height={15} /> Delet User
-                </button>
-            </div>
-
-            <UsersTable/>
+            <ReportsTable/>
 
           </div>
         </div>

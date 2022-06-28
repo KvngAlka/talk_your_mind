@@ -7,6 +7,7 @@ import {LockClosedIcon, LoginIcon, UserIcon} from '@heroicons/react/outline'
 import { useStateValue } from '../src/state_manger/contextApi'
 import { USER_LOGIN } from '../src/state_manger/constants'
 import { useRouter } from 'next/router'
+import axiosInstance from '../src/state_manger/axios'
 
 const Auth = () => {
     const userObj = {
@@ -30,8 +31,10 @@ const Auth = () => {
             setPageLoading(false);
             return;
         }
+
         
     },[user,router]);
+
 
 
     const handleUserChange = (e:any)=>{
@@ -39,9 +42,23 @@ const Auth = () => {
         setUserData({...userData, [name] : value});
     }
 
-    const handleUserSubmit = (e:any)=>{
+
+    const handleUserSubmit = async(e:any)=>{
         e.preventDefault();
-        dispatch({type : USER_LOGIN, payload : userData})
+        await axiosInstance.post("/auth",userData).then(res => {
+            const data = res.data;
+
+            if(!data.data){
+                alert(data.msg);
+                return;
+            }
+
+            if(data.data){
+                dispatch({type : USER_LOGIN, payload : userData})
+            }
+            
+        })
+        
     }
 
 
@@ -79,7 +96,7 @@ const Auth = () => {
                         <div className={`${styles.icon}`}>
                             <LockClosedIcon/>
                         </div>
-                        <input type="text" value={userData.password} name = "password" onChange={handleUserChange} placeholder='password' />
+                        <input type="password" value={userData.password} name = "password" onChange={handleUserChange} placeholder='password' />
                     </div>
                     <button className={`containerFlex`}>
                         <div className='containerFlex' >

@@ -5,4 +5,24 @@
     justify-content: space-between;
 }
 
+.add_delete_user_cont{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    margin-top: 40px;
+}
 
+
+.add_delete_user_cont button{
+    width: 200px;
+    padding: 15px;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}

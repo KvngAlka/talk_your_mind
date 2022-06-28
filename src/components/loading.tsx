@@ -9,4 +9,13 @@ const Loading = () => {
   )
 }
 
+
+export const Loading2 = ()=>{
+  return (
+    <div className='loading containerGrid'  style={{width : "100%", height : "500px", placeItems : "center"}}>
+        <CircularProgress style={{color : "var(--primeCol)", }}/>
+    </div>
+  )
+}
+
 export default Loading

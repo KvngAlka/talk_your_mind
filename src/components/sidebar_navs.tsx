@@ -116,11 +116,11 @@ const ListRoutes = ()=>{
 
       <Collapse in={opens.reportOpen} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
+          <ListItemButton sx={{ pl: 4 }} onClick = {()=> router.push("/cdrs")}>
             <ListItemIcon>
               
             </ListItemIcon>
-            <ListItemText primary="Reports" />
+            <ListItemText primary="CDRs" />
           </ListItemButton>
         </List>
       </Collapse>

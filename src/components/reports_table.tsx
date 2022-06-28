@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../styles/UsersTable.module.css'
 import axiosInstance from '../state_manger/axios'
-import { Loading2 } from './loading';
+import { Loading2 } from './loading'
 
-const UsersTable = () => {
+const ReportsTable = () => {
 
-    const [users,setUsers] = useState<any[] | null>(null);
+    const [cdrs,setCdrs] = useState<any[] | null>(null)
     const [dataLoading, setDataLoading] = useState<boolean>(true)
 
     useEffect(()=>{
         let getUsers = async()=>{
-            await axiosInstance.get("/users").then(res=>{
-                setUsers([...res.data]);
+            await axiosInstance.get("/cdrs").then(res=>{
+                setCdrs([...res.data]);
                 setDataLoading(false)
+
             }).catch(err => {console.log(err); setDataLoading(false)})
         }
 
-        !users && getUsers();
-    },[users])
-
+        !cdrs && getUsers();
+    },[cdrs])
 
     if(dataLoading) return <Loading2/>
 
@@ -28,16 +28,19 @@ const UsersTable = () => {
             <thead>
                 <tr>
                     <th>
-                        Login
+                        Data
                     </th>
                     <th>
-                        Real Name
+                        Source
                     </th>
                     <th>
-                        Group
+                        Destination
                     </th>
                     <th>
-                        Extension
+                        Status
+                    </th>
+                    <th>
+                        Duration
                     </th>
                 </tr>
             </thead>
@@ -46,21 +49,23 @@ const UsersTable = () => {
 
 
                 {
-
-                    users?.map((user : any, i : number)=> {
+                    cdrs?.map((cdr : any, i : number)=> {
                         return (
                             <tr key={i}>
-                                <td style ={{color : '#666699'}}>
-                                    {user.name}
+                                <td>
+                                    {cdr.date}
                                 </td>
                                 <td>
-                                    {user.realName}
+                                    {cdr.source}
                                 </td>
                                 <td>
-                                    {user.group}
+                                    {cdr.destination}
+                                </td>
+                                <td  style={{color : cdr.status === "ANSWERED" ? 'green' : 'red'}}>
+                                    {cdr.status}
                                 </td>
                                 <td>
-                                    {user.extension || 'No extension associated'}
+                                    {cdr.duration}
                                 </td>
                             </tr>
                         )
@@ -74,4 +79,4 @@ const UsersTable = () => {
   )
 }
 
-export default UsersTable
+export default ReportsTable
