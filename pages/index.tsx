@@ -19,7 +19,6 @@ const Home: NextPage = () => {
   useEffect(()=>{
     if(!state.user){
       router.push("/auth")
-      setPageLoading(false)
     }else{
       setPageLoading(false)
     }
