@@ -45,7 +45,7 @@ const Auth = () => {
 
     const handleUserSubmit = async(e:any)=>{
         e.preventDefault();
-        await axiosInstance.post("/auth",userData).then(res => {
+        await axiosInstance.post("/auth",userData).then((res : any) => {
             const data = res.data;
 
             if(!data.data){
