@@ -10,7 +10,7 @@ const ReportsTable = () => {
 
     useEffect(()=>{
         let getUsers = async()=>{
-            await axiosInstance.get("/cdrs").then(res=>{
+            await axiosInstance.get("/cdrs").then((res : any)=>{
                 setCdrs([...res.data]);
                 setDataLoading(false)
 

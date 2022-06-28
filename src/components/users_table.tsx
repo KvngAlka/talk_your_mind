@@ -10,7 +10,7 @@ const UsersTable = () => {
 
     useEffect(()=>{
         let getUsers = async()=>{
-            await axiosInstance.get("/users").then(res=>{
+            await axiosInstance.get("/users").then((res : any)=>{
                 setUsers([...res.data]);
                 setDataLoading(false)
             }).catch(err => {console.log(err); setDataLoading(false)})
