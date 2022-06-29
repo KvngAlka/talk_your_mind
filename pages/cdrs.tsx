@@ -29,7 +29,7 @@ const Users: NextPage = () => {
     }else{
       setPageLoading(false)
     }
-  },[router, state.user]);
+  },[router, state.user , dispatch]);
 
 
   if(pageLoading) return <div>Loading....</div>
