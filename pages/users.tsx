@@ -10,17 +10,23 @@ import UsersTable from '../src/components/users_table'
 import { useStateValue } from '../src/state_manger/contextApi'
 import {PlusIcon, TrashIcon} from '@heroicons/react/outline'
 import styles from '../styles/Home.module.css'
+import { USER_LOGIN } from '../src/state_manger/constants'
 
 const Users: NextPage = () => {
 
-  const {state} = useStateValue();
+  const {state, dispatch} = useStateValue();
   const router = useRouter();
   const [pageLoading, setPageLoading] = useState(true);
 
   useEffect(()=>{
     if(!state.user){
-      router.push("/auth")
-      setPageLoading(false)
+      const user = localStorage.getItem("user");
+      if(user){
+        let userJson = JSON.parse(user);
+        dispatch({type : USER_LOGIN, payload : userJson})
+      }else{
+        router.push("/auth")
+      }
     }else{
       setPageLoading(false)
     }

@@ -28,7 +28,7 @@ export const Navbar = () => {
                 <h4>
                     {"Admin"}
                 </h4>
-                <div title='Logout' onClick={()=>dispatch({type : USER_LOGOUT})} className={`${styles.arrow_down_icon_cont}`} style = {{marginLeft : "10px", cursor : "pointer"}}>
+                <div title='Logout' onClick={()=>{dispatch({type : USER_LOGOUT}); localStorage.removeItem("user")}} className={`${styles.arrow_down_icon_cont}`} style = {{marginLeft : "10px", cursor : "pointer"}}>
                     <ChevronDownIcon/>
                 </div>
                 

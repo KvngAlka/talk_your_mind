@@ -7,19 +7,25 @@ import { useEffect, useState} from 'react'
 import { Navbar } from '../src/components/navbar'
 import ReportsTable from '../src/components/reports_table'
 import SideNavbar from '../src/components/side_navbar'
+import { USER_LOGIN } from '../src/state_manger/constants'
 import { useStateValue } from '../src/state_manger/contextApi'
 import styles from '../styles/Home.module.css'
 
 const Users: NextPage = () => {
 
-  const {state} = useStateValue();
+  const {state, dispatch} = useStateValue();
   const router = useRouter();
   const [pageLoading, setPageLoading] = useState(true);
 
   useEffect(()=>{
     if(!state.user){
-      router.push("/auth")
-      setPageLoading(false)
+      const user = localStorage.getItem("user");
+      if(user){
+        let userJson = JSON.parse(user);
+        dispatch({type : USER_LOGIN, payload : userJson})
+      }else{
+        router.push("/auth")
+      }
     }else{
       setPageLoading(false)
     }

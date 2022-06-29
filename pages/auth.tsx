@@ -54,7 +54,9 @@ const Auth = () => {
             }
 
             if(data.data){
-                dispatch({type : USER_LOGIN, payload : userData})
+                dispatch({type : USER_LOGIN, payload : data.data})
+
+                localStorage.setItem("user",JSON.stringify(data.data))
             }
             
         }).catch((err:any)=> {console.log(err); setPageLoading(false)})

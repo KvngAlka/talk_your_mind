@@ -7,18 +7,26 @@ import { useEffect, useState} from 'react'
 import Dashboard from '../src/components/dashboard'
 import { Navbar } from '../src/components/navbar'
 import SideNavbar from '../src/components/side_navbar'
+import { USER_LOGIN } from '../src/state_manger/constants'
 import { useStateValue } from '../src/state_manger/contextApi'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
 
-  const {state} = useStateValue();
+  const {state, dispatch} = useStateValue();
   const router = useRouter();
   const [pageLoading, setPageLoading] = useState(true);
 
   useEffect(()=>{
     if(!state.user){
-      router.push("/auth")
+      const user = localStorage.getItem("user");
+      if(user){
+        let userJson = JSON.parse(user);
+        dispatch({type : USER_LOGIN, payload : userJson})
+      }else{
+        router.push("/auth")
+      }
+      
     }else{
       setPageLoading(false)
     }
